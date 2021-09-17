@@ -21,8 +21,14 @@ module.exports = sequelize.define(
       allowNull: false,
     },
     attachment: Sequelize.STRING(50),
-    creation_date_time: Sequelize.DATE(),
-    due_date_time: Sequelize.DATE(),
+    creation_date_time: {
+      type: Sequelize.DATE,
+      defaultValue: Sequelize.literal("CURRENT_TIMESTAMP"),
+    },
+    due_date_time: {
+      type: Sequelize.DATE,
+      defaultValue: Sequelize.literal("CURRENT_TIMESTAMP"),
+    },
     completed_task: Sequelize.BOOLEAN(),
     task_status: {
       type: Sequelize.ENUM(),
