@@ -31,7 +31,7 @@ module.exports.VerifyUserinDB = async (req, res, next) => {
         user_info,
         process.env.ACCESS_TOKEN_SECRET,
         {
-          expiresIn: "15m",
+          expiresIn: "3h",
         }
       );
 
