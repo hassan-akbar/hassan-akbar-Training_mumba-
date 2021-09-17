@@ -14,4 +14,10 @@ router.get(
   report_controller.GetUserReports
 );
 
+router.get(
+  "/averge_completed_tasks",
+  AuthenticationMiddleware.VerifyToken,
+  report_controller.GetAverageCompletions
+);
+
 module.exports = router;

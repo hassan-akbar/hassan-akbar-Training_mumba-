@@ -28,3 +28,52 @@ module.exports.Get_Task_reports = async (user_info) => {
     return "NoResponse";
   }
 };
+
+module.exports.Get_Average_completions = async (user_info) => {
+  let average_query = await Tasks.findAll({
+    attributes: [
+      [Tasks.sequelize.fn("count", Tasks.sequelize.col("*")), "total"],
+      [
+        Tasks.sequelize.literal(
+          `sum(CASE task_status WHEN "active" THEN 1 ELSE 0 END )`
+        ),
+        "active_tasks",
+      ],
+      [
+        Tasks.sequelize.literal(
+          `sum(CASE task_status WHEN "pending" THEN 1 ELSE 0 END )`
+        ),
+        "pending_tasks",
+      ],
+      [
+        Tasks.sequelize.literal(
+          `sum(CASE task_status WHEN "completed" THEN 1 ELSE 0 END )`
+        ),
+        "completed_tasks",
+      ],
+    ],
+    include: [
+      {
+        attributes: [],
+        model: User,
+        as: "Users",
+      },
+    ],
+    raw: true,
+  });
+
+  // average_query = JSON.parse(JSON.stringify(average_query));
+
+  console.log(average_query);
+
+  if (await average_query) {
+    const average_completed_tasks =
+      (parseInt(average_query[0].completed_tasks) / average_query[0].total) *
+      100;
+
+    average_query[0]["average_completions"] = average_completed_tasks;
+    return average_query;
+  } else {
+    return false;
+  }
+};
