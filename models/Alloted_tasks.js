@@ -1,6 +1,11 @@
 const Sequelize = require("sequelize");
 const sequelize = require("../database/connection");
 
+/**
+ *
+ * Model for tasks
+ *
+ */
 module.exports = sequelize.define(
   "Alloted_Tasks",
   {
