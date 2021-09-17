@@ -1,11 +1,12 @@
 const Tasks = require("../models/index_models").Tasks;
 const User = require("..//models/index_models").Users;
+const { Op } = require("sequelize");
 
 const err_hanlder = (err) => {
   console.log(`Error : ${err}`);
 };
 
-module.exports.Get_Task_reports = async (user_info) => {
+module.exports.Get_Task_Reports = async (user_info) => {
   const report_query = await Tasks.count({
     attributes: ["task_status"],
     group: "task_status",
@@ -29,7 +30,7 @@ module.exports.Get_Task_reports = async (user_info) => {
   }
 };
 
-module.exports.Get_Average_completions = async (user_info) => {
+module.exports.Get_Average_Completions = async (user_info) => {
   let average_query = await Tasks.findAll({
     attributes: [
       [Tasks.sequelize.fn("count", Tasks.sequelize.col("*")), "total"],
@@ -57,14 +58,11 @@ module.exports.Get_Average_completions = async (user_info) => {
         attributes: [],
         model: User,
         as: "Users",
+        where: { email: user_info.email },
       },
     ],
     raw: true,
   });
-
-  // average_query = JSON.parse(JSON.stringify(average_query));
-
-  console.log(average_query);
 
   if (await average_query) {
     const average_completed_tasks =
@@ -73,6 +71,86 @@ module.exports.Get_Average_completions = async (user_info) => {
 
     average_query[0]["average_completions"] = average_completed_tasks;
     return average_query;
+  } else {
+    return false;
+  }
+};
+
+module.exports.Get_Late_Completions = async (user_info) => {
+  const late_completion_query = await Tasks.count({
+    where: {
+      completion_date_time: { [Op.gt]: Tasks.sequelize.col("due_date_time") },
+    },
+    include: [
+      {
+        attributes: [],
+        model: User,
+        as: "Users",
+        where: { email: user_info.email },
+      },
+    ],
+  });
+
+  if (late_completion_query) {
+    return JSON.stringify(late_completion_query);
+  } else {
+    return false;
+  }
+};
+
+module.exports.Get_Max_Day_completions = async (user_info) => {
+  const max_completions_query = await Tasks.findAll({
+    attributes: [
+      [
+        Tasks.sequelize.fn(
+          "date_format",
+          sequelize.col("completion_date_time"),
+          "%Y-%m-%d"
+        ),
+        "date",
+      ],
+      [
+        Tasks.sequelize.fn("count", Tasks.sequelize.col("creation_date_time")),
+        "occurances",
+      ],
+    ],
+
+    where: [
+      Tasks.sequelize.where(
+        Tasks.sequelize.fn(
+          "date_format",
+          sequelize.col("creation_date_time"),
+          "%Y-%m-%d"
+        ),
+        "=",
+        Tasks.sequelize.fn(
+          "date_format",
+          sequelize.col("completion_date_time"),
+          "%Y-%m-%d"
+        )
+      ),
+    ],
+
+    group: [
+      [
+        Tasks.sequelize.fn(
+          "date_format",
+          sequelize.col("creation_date_time"),
+          "%Y-%m-%d"
+        ),
+      ],
+    ],
+
+    order: [[sequelize.literal("occurances", "DESC")]],
+    raw: true,
+  })
+    .then((query_response) => {
+      return query_response;
+    })
+    .catch(err_hanlder);
+
+  if (max_completions_query) {
+    return max_completions_query.pop();
   } else {
     return false;
   }
