@@ -25,8 +25,7 @@ module.exports = {
       },
       completion_date_time: {
         type: Sequelize.DATE,
-        defaultValue: Sequelize.literal("CURRENT_TIMESTAMP"),
-        allowNull: false,
+        allowNull: true,
       },
       due_date_time: {
         type: Sequelize.DATE,
