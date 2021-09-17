@@ -29,12 +29,19 @@ module.exports = sequelize.define(
     creation_date_time: {
       type: Sequelize.DATE,
       defaultValue: Sequelize.literal("CURRENT_TIMESTAMP"),
+      allowNull: false,
+    },
+    completion_date_time: {
+      type: Sequelize.DATE,
+      defaultValue: Sequelize.literal("CURRENT_TIMESTAMP"),
+      allowNull: false,
     },
     due_date_time: {
       type: Sequelize.DATE,
       defaultValue: Sequelize.literal("CURRENT_TIMESTAMP"),
+      allowNull: false,
     },
-    completed_task: Sequelize.BOOLEAN(),
+    completed_task: { type: Sequelize.BOOLEAN(), defaultValue: 0 },
     task_status: {
       type: Sequelize.ENUM(),
       values: ["active", "pending", "completed"],
