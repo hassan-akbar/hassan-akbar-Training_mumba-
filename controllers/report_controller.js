@@ -16,3 +16,17 @@ module.exports.GetUserReports = async (req, res, next) => {
       send("Invalid pull request, check if user has created tasks");
   }
 };
+
+module.exports.GetAverageCompletions = async (req, res, next) => {
+  const user_details = await req.user;
+
+  const average_completions = report_services
+    .Get_Average_completions(user_details)
+    .then((completion_results) => {
+      if (completion_results) {
+        res.status(200).send(completion_results);
+      } else {
+        res.status(401).send("Invalid query");
+      }
+    });
+};

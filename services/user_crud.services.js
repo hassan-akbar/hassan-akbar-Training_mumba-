@@ -56,8 +56,6 @@ module.exports.Login_User = async (user_info) => {
   }
 };
 
-module.exports.Facebook_Sign_Up = async () => {};
-
 module.exports.Sign_Up_User = async (user_info) => {
   // uses jwt token parser to create a token request and send it to the users email
   user_check = await check_user_exists(user_info.email);
@@ -67,7 +65,7 @@ module.exports.Sign_Up_User = async (user_info) => {
     //encrypting passowrd ^^
     console.log(user_info);
     const jwttoken = jwt.sign(user_info, process.env.JWT_ACC_ACTIVATE, {
-      expiresIn: "3h",
+      expiresIn: "15m",
     });
     const data = {
       from: "noreply@mailgun_test.com",
