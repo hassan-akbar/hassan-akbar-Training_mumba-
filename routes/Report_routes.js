@@ -20,4 +20,15 @@ router.get(
   report_controller.GetAverageCompletions
 );
 
+router.get(
+  "/late_completions",
+  AuthenticationMiddleware.VerifyToken,
+  report_controller.GetLateCompletions
+);
+
+router.get(
+  "/max_completions_day",
+  AuthenticationMiddleware.VerifyToken,
+  report_controller.GetMaxDayCompletions
+);
 module.exports = router;
