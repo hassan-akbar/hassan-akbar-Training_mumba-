@@ -1,6 +1,7 @@
 const Tasks = require("../models/index_models").Tasks;
 const User = require("..//models/index_models").Users;
 const { Op } = require("sequelize");
+const moment = require("moment");
 
 const err_hanlder = (err) => {
   console.log(`Error : ${err}`);
@@ -135,7 +136,7 @@ module.exports.Get_Max_Day_completions = async (user_info) => {
       [
         Tasks.sequelize.fn(
           "date_format",
-          sequelize.col("creation_date_time"),
+          sequelize.col("completion_date_time"),
           "%Y-%m-%d"
         ),
       ],
@@ -143,6 +144,14 @@ module.exports.Get_Max_Day_completions = async (user_info) => {
 
     order: [[sequelize.literal("occurances", "DESC")]],
     raw: true,
+    include: [
+      {
+        attributes: [],
+        model: User,
+        as: "Users",
+        where: { email: user_info.email },
+      },
+    ],
   })
     .then((query_response) => {
       return query_response;
@@ -154,4 +163,69 @@ module.exports.Get_Max_Day_completions = async (user_info) => {
   } else {
     return false;
   }
+};
+
+module.exports.Get_Perday_Creation_Reports = async (user_info) => {
+  const daily_reports = await Tasks.findAll({
+    attributes: [
+      // [
+      //   sequelize.fn("date_format", sequelize.col("creation_date_time"), "%a"),
+      //   "day:",
+      // ],
+
+      // sequelize.literal("DATE_FORMAT(creation_date_time,'%a')"),
+      [
+        sequelize.literal(
+          `sum(CASE DATE_FORMAT(creation_date_time, '%a')
+           WHEN "Mon" THEN 1 ELSE 0 END )`
+        ),
+        "Monday",
+      ],
+      [
+        sequelize.literal(
+          `sum(CASE DATE_FORMAT(creation_date_time, '%a')
+           WHEN "Tues" THEN 1 ELSE 0 END )`
+        ),
+        "Tuesday",
+      ],
+      [
+        sequelize.literal(
+          `sum(CASE DATE_FORMAT(creation_date_time, '%a')
+           WHEN "Wed" THEN 1 ELSE 0 END )`
+        ),
+        "Wednesday",
+      ],
+      [
+        sequelize.literal(
+          `sum(CASE DATE_FORMAT(creation_date_time, '%a')
+           WHEN "Thurs" THEN 1 ELSE 0 END )`
+        ),
+        "Thursday",
+      ],
+      [
+        sequelize.literal(
+          `sum(CASE DATE_FORMAT(creation_date_time, '%a')
+           WHEN "Fri" THEN 1 ELSE 0 END )`
+        ),
+        "Friday",
+      ],
+      [
+        sequelize.literal(
+          `sum(CASE DATE_FORMAT(creation_date_time, '%a')
+           WHEN "Sat" THEN 1 ELSE 0 END )`
+        ),
+        "Saturday",
+      ],
+      [
+        sequelize.literal(
+          `sum(CASE DATE_FORMAT(creation_date_time, '%a')
+           WHEN "Sun" THEN 1 ELSE 0 END )`
+        ),
+        "Sunday",
+      ],
+    ],
+    raw: true,
+  });
+
+  return daily_reports;
 };

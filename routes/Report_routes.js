@@ -31,4 +31,10 @@ router.get(
   AuthenticationMiddleware.VerifyToken,
   report_controller.GetMaxDayCompletions
 );
+
+router.get(
+  "/day_info_reports",
+  AuthenticationMiddleware.VerifyToken,
+  report_controller.GetPerDayCreationReports
+);
 module.exports = router;
