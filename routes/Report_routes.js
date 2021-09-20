@@ -1,6 +1,7 @@
 const express = require("express");
 const report_controller = require("../controllers/report_controller");
-const AuthenticationMiddleware = require("../middleware/authentication.middleware");
+const AuthenticationMiddleware =
+  require("../middleware/authentication.middleware").VerifyToken;
 
 const router = express();
 
@@ -10,31 +11,31 @@ router.get("/", (req, res) => {
 
 router.get(
   "/total_tasks",
-  AuthenticationMiddleware.VerifyToken,
+  AuthenticationMiddleware,
   report_controller.GetUserReports
 );
 
 router.get(
   "/averge_completed_tasks",
-  AuthenticationMiddleware.VerifyToken,
+  AuthenticationMiddleware,
   report_controller.GetAverageCompletions
 );
 
 router.get(
   "/late_completions",
-  AuthenticationMiddleware.VerifyToken,
+  AuthenticationMiddleware,
   report_controller.GetLateCompletions
 );
 
 router.get(
   "/max_completions_day",
-  AuthenticationMiddleware.VerifyToken,
+  AuthenticationMiddleware,
   report_controller.GetMaxDayCompletions
 );
 
 router.get(
   "/day_info_reports",
-  AuthenticationMiddleware.VerifyToken,
+  AuthenticationMiddleware,
   report_controller.GetPerDayCreationReports
 );
 module.exports = router;
