@@ -55,3 +55,15 @@ module.exports.GetMaxDayCompletions = async (req, res, next) => {
     }
   });
 };
+
+module.exports.GetPerDayCreationReports = async (req, res, next) => {
+  report_services
+    .Get_Perday_Creation_Reports(req.user)
+    .then((per_day_response) => {
+      if (per_day_response) {
+        res.status(200).send(per_day_response);
+      } else {
+        res.status(401).send("error");
+      }
+    });
+};
