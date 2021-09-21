@@ -97,6 +97,18 @@ module.exports.DownloadAttachment = async (req, res) => {
     }
   );
 };
+
+module.exports.GetSimilarTasks = async (req, res) => {
+  task_id = req.params.id;
+  await Task_services.Show_Similar_Tasks(task_id).then((similar_tasks) => {
+    if (similar_tasks) {
+      res.status(200).send(similar_tasks);
+    } else {
+      res.status(400).send("no similar tasks");
+    }
+  });
+};
+
 module.exports.DeleteTask = async (req, res) => {
   task_id = req.params.id;
 

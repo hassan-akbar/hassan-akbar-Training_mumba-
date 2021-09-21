@@ -43,6 +43,16 @@ router.get(
   task_controller.DownloadAttachment
 );
 // route to delete a task based on the task id
-router.delete("/delete_task/:id", task_controller.DeleteTask);
+router.delete(
+  "/delete_task/:id",
+  AuthenticationMiddleware,
+  task_controller.DeleteTask
+);
+
+router.get(
+  "/similar_tasks/:id",
+  AuthenticationMiddleware,
+  task_controller.GetSimilarTasks
+);
 
 module.exports = router;
