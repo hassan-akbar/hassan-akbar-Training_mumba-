@@ -19,6 +19,11 @@ module.exports = {
         type: Sequelize.STRING(128),
         allowNull: false,
       },
+      OauthUser: {
+        type: Sequelize.BOOLEAN,
+        allowNull: false,
+        defaultValue: "0",
+      },
       createdAt: {
         type: Sequelize.DATE,
         defaultValue: Sequelize.literal("CURRENT_TIMESTAMP"),

@@ -40,17 +40,24 @@ module.exports.Login_User = async (user_info) => {
   // user = user.toJSON();
   // console.log("user from db", user);
   // console.log(user_info);
+
   if (user) {
-    if (await bcrypt.compare(user_info.passwd, user.passwd)) {
-      const access_token = jwt.sign(
-        user_info,
-        process.env.ACCESS_TOKEN_SECRET,
-        {
-          expiresIn: "3h",
-        }
-      );
-      return access_token; // signing token  for jwt access of routes
-    } // compare is more secure
+    if (!user.OauthUser) {
+      // signing token  for jwt access of routes
+      // compare is more secure
+      if (await bcrypt.compare(user_info.passwd, user.passwd)) {
+        const access_token = jwt.sign(
+          user_info,
+          process.env.ACCESS_TOKEN_SECRET,
+          {
+            expiresIn: "3h",
+          }
+        );
+        return access_token;
+      }
+    } else {
+      return "OauthUser";
+    }
   } else {
     return false;
   }
@@ -98,14 +105,19 @@ module.exports.Create_User = async (body_content) => {
       }
     );
     console.log(decoded_token);
-    creation_response = await User.create(decoded_token)
-      .catch(err_handler)
-      .then((query_response) => {
-        return query_response;
-      })
-      .catch(err_handler);
 
-    return creation_response;
+    if (await check_user_exists(decoded_token.email)) {
+      creation_response = await User.create(decoded_token)
+        .catch(err_handler)
+        .then((query_response) => {
+          return query_response;
+        })
+        .catch(err_handler);
+
+      return creation_response;
+    } else {
+      return false;
+    }
   } else {
     return false;
   }
