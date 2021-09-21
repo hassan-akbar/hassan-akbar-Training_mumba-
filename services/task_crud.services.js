@@ -1,8 +1,8 @@
 const Tasks = require("../models/index_models").Tasks;
 const Users = require("../models/index_models").Users;
 const fs = require("fs");
-const jwt = require("jsonwebtoken");
-const { captureRejectionSymbol } = require("events");
+const { Op } = require("sequelize");
+const StringSimilarity = require("string-similarity");
 const err_handler = (err) => {
   console.log(`Error : ${err}`);
 };
@@ -87,6 +87,75 @@ module.exports.Show_All_Tasks = async () => {
     })
     .catch(err_handler);
   return all_task_info;
+};
+
+module.exports.Show_Similar_Tasks = async (task_info) => {
+  /**
+   *
+   * Uses dice index to calculate bigrams
+   * Strips the string of all spaces
+   * Calculates bigrams for string 1 and string 2
+   * Calculates the sets that are similar in both string 1 and 2
+   *
+   * uses dice index to match similarity index b/w the bigrams
+   *
+   */
+  console.log(task_info);
+  all_task_info = await Tasks.findAll({
+    attributes: ["id", "description"],
+    raw: true,
+  });
+
+  //converts array to dictionary based on id
+  let tasks_dictionary = all_task_info.reduce(
+    (a, x) => ({ ...a, [x.id]: x.description }),
+    {}
+  );
+  // requested_task = tasks_dictionary[task_info];
+  // delete tasks_dictionary[task_info]; //deleting Task A which will be matched after extracting info
+  // console.log(tasks_dictionary);
+  // console.log(tasks_dictionary);
+
+  let similar_tasks = {};
+  let added_tasks = [];
+  for (Key in tasks_dictionary) {
+    buffer_list = JSON.parse(JSON.stringify(tasks_dictionary));
+    for (x in tasks_dictionary) {
+      if (x === Key) {
+        delete buffer_list[x];
+        continue;
+      }
+
+      if (
+        StringSimilarity.compareTwoStrings(
+          tasks_dictionary[Key].toLowerCase(),
+          tasks_dictionary[x].toLowerCase()
+        ) >= 0.25
+      ) {
+        continue;
+      } else {
+        delete buffer_list[x];
+      }
+    }
+
+    let check = true;
+
+    for (values in buffer_list) {
+      if (values in added_tasks) {
+        check = false;
+        break;
+      } else {
+        added_tasks.push(values);
+        continue;
+      }
+    }
+
+    if (check) {
+      similar_tasks[Key] = buffer_list;
+    }
+  }
+
+  return similar_tasks;
 };
 
 module.exports.Update_Task_Status = async (task_info, user_info) => {
