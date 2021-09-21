@@ -11,7 +11,9 @@ module.exports.LoginUser = async (req, res) => {
   const access_token = await User_services.Login_User(user_info);
   console.log(access_token);
 
-  if (access_token) {
+  if (access_token == "OauthUser") {
+    res.status(403).send("Oauth Users cant login");
+  } else if (access_token) {
     res.status(201).json(access_token);
   } else {
     res.status(500).send("Invalid email/password combination");

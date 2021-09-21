@@ -21,6 +21,7 @@ module.exports.VerifyUserinDB = async (req, res, next) => {
       username: user_name,
       email: user_email,
       passwd: user_passwd,
+      OauthUser: "1",
     },
     where: { email: user_email },
   }).catch(err_handler);

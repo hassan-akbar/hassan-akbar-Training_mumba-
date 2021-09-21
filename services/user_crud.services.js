@@ -40,17 +40,24 @@ module.exports.Login_User = async (user_info) => {
   // user = user.toJSON();
   // console.log("user from db", user);
   // console.log(user_info);
+
   if (user) {
-    if (await bcrypt.compare(user_info.passwd, user.passwd)) {
-      const access_token = jwt.sign(
-        user_info,
-        process.env.ACCESS_TOKEN_SECRET,
-        {
-          expiresIn: "3h",
-        }
-      );
-      return access_token; // signing token  for jwt access of routes
-    } // compare is more secure
+    if (!user.OauthUser) {
+      // signing token  for jwt access of routes
+      // compare is more secure
+      if (await bcrypt.compare(user_info.passwd, user.passwd)) {
+        const access_token = jwt.sign(
+          user_info,
+          process.env.ACCESS_TOKEN_SECRET,
+          {
+            expiresIn: "3h",
+          }
+        );
+        return access_token;
+      }
+    } else {
+      return "OauthUser";
+    }
   } else {
     return false;
   }
