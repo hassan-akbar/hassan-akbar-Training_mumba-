@@ -98,14 +98,19 @@ module.exports.Create_User = async (body_content) => {
       }
     );
     console.log(decoded_token);
-    creation_response = await User.create(decoded_token)
-      .catch(err_handler)
-      .then((query_response) => {
-        return query_response;
-      })
-      .catch(err_handler);
 
-    return creation_response;
+    if (await check_user_exists(decoded_token.email)) {
+      creation_response = await User.create(decoded_token)
+        .catch(err_handler)
+        .then((query_response) => {
+          return query_response;
+        })
+        .catch(err_handler);
+
+      return creation_response;
+    } else {
+      return false;
+    }
   } else {
     return false;
   }
