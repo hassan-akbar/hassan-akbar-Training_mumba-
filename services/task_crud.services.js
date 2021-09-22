@@ -89,7 +89,7 @@ module.exports.Show_All_Tasks = async () => {
   return all_task_info;
 };
 
-module.exports.Show_Similar_Tasks = async (task_info) => {
+module.exports.Show_Similar_Tasks = async () => {
   /**
    *
    * Uses dice index to calculate bigrams
@@ -100,7 +100,7 @@ module.exports.Show_Similar_Tasks = async (task_info) => {
    * uses dice index to match similarity index b/w the bigrams
    *
    */
-  console.log(task_info);
+
   all_task_info = await Tasks.findAll({
     attributes: ["id", "description"],
     raw: true,
@@ -118,8 +118,10 @@ module.exports.Show_Similar_Tasks = async (task_info) => {
 
   let similar_tasks = {};
   let added_tasks = [];
+
   for (Key in tasks_dictionary) {
     buffer_list = JSON.parse(JSON.stringify(tasks_dictionary));
+
     for (x in tasks_dictionary) {
       if (x === Key) {
         delete buffer_list[x];
@@ -141,11 +143,13 @@ module.exports.Show_Similar_Tasks = async (task_info) => {
     let check = true;
 
     for (values in buffer_list) {
-      if (values in added_tasks) {
+      console.log(added_tasks);
+      //console.log(1 in added_tasks);
+      if (added_tasks.includes(values)) {
         check = false;
         break;
       } else {
-        added_tasks.push(values);
+        added_tasks.push(Key.toString());
         continue;
       }
     }
