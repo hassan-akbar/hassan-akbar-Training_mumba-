@@ -50,7 +50,7 @@ router.delete(
 );
 
 router.get(
-  "/similar_tasks/:id",
+  "/similar_tasks",
   AuthenticationMiddleware,
   task_controller.GetSimilarTasks
 );
