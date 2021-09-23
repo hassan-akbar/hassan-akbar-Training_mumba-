@@ -14,6 +14,10 @@ app.get("/", (req, res) => {
 
 app.use("/api", require("./routes/api_routes"));
 
-app.listen(PORT, () => {
-  console.log(`Live at : http://localhost:${PORT}`);
-});
+app.listen(
+  PORT,
+  () => {
+    console.log(`Live at : http://localhost:${PORT}`);
+  },
+  require("./middleware/cronjobs.middleware").DailyPendingTasks
+);
