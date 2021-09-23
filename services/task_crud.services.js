@@ -111,10 +111,6 @@ module.exports.Show_Similar_Tasks = async () => {
     (a, x) => ({ ...a, [x.id]: x.description }),
     {}
   );
-  // requested_task = tasks_dictionary[task_info];
-  // delete tasks_dictionary[task_info]; //deleting Task A which will be matched after extracting info
-  // console.log(tasks_dictionary);
-  // console.log(tasks_dictionary);
 
   let similar_tasks = {};
   let added_tasks = [];
