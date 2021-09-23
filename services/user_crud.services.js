@@ -153,6 +153,18 @@ module.exports.Update_User = async (body_content) => {
 };
 
 // Password reset module
+/**
+ * Three functions are utlized for this module
+ * Request_password_change-gets a request from the user and sends a jwt token to the email
+ * to proceed the request further on to a different route
+ *
+ * Verify_password_change_token - gets the previous jwt token encodes it using another jwt token with
+ * a password reset secret key and returns it as a response
+ *
+ * Change_Password_User - gets the Password reset jwt token and changes the password to the new one
+ * provided by the user
+ *
+ */
 
 //-----------------------------------------------------------------------------------------------------
 module.exports.Request_password_change = async (user_info) => {
