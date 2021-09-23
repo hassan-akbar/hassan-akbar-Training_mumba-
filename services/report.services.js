@@ -100,6 +100,9 @@ module.exports.Get_Late_Completions = async (user_info) => {
 };
 
 module.exports.Get_Max_Day_completions = async (user_info) => {
+  /**
+   * Calculates the date for the maximum number of tasks completions
+   */
   const max_completions_query = await Tasks.findAll({
     attributes: [
       [
@@ -166,14 +169,11 @@ module.exports.Get_Max_Day_completions = async (user_info) => {
 };
 
 module.exports.Get_Perday_Creation_Reports = async (user_info) => {
+  /**
+   * Finds the total ammount of tasks created on every day of the week
+   */
   const daily_reports = await Tasks.findAll({
     attributes: [
-      // [
-      //   sequelize.fn("date_format", sequelize.col("creation_date_time"), "%a"),
-      //   "day:",
-      // ],
-
-      // sequelize.literal("DATE_FORMAT(creation_date_time,'%a')"),
       [
         sequelize.literal(
           `sum(CASE DATE_FORMAT(creation_date_time, '%a')
