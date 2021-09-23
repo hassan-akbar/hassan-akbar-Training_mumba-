@@ -15,7 +15,6 @@ const mg = mailgun({
 module.exports.DailyPendingTasks = async (req, res, next) => {
   // called on server listen
   // schedules daily emails based on pending tasks for the day
-  console.log("Email list triggered");
   schedule.scheduleJob("0 */5 * * 1-5", await SendDailyEmail);
 };
 
@@ -25,6 +24,7 @@ SendDailyEmail = async () => {
    * Orders them by user id
    * sends an email to every user based on their pending tasks from the query response
    */
+  console.log("Email list triggered");
 
   //date cant be compared using like must use greater than or less than hence two date variables are made
   const TODAY_START = new Date().setHours(0, 0, 0, 0);

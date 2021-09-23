@@ -36,10 +36,12 @@ async function check_user_exists(user_email) {
 }
 
 module.exports.Login_User = async (user_info) => {
+  /**
+   * Login module ,
+   * Only allows non Oauth users to login
+   *
+   */
   let user = await User.findOne({ where: { email: user_info.email } });
-  // user = user.toJSON();
-  // console.log("user from db", user);
-  // console.log(user_info);
 
   if (user) {
     if (!user.OauthUser) {
