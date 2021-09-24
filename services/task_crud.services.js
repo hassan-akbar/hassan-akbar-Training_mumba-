@@ -139,8 +139,6 @@ module.exports.Show_Similar_Tasks = async () => {
     let check = true;
 
     for (values in buffer_list) {
-      console.log(added_tasks);
-      //console.log(1 in added_tasks);
       if (added_tasks.includes(values)) {
         check = false;
         break;
