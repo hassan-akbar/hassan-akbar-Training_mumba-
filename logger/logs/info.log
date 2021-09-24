@@ -1,0 +1,102 @@
+2021-09-24T08:13:59.211Z info: 
+    "Route :/create_task ---> Type: Request ---> Sending:{\"title\":\"Task title1\",\"description\":\"Test task\",\"due_date_time\":\"2019-02-18 11:15:45\",\"completed_task\":0,\"user_id\":2} ---> report_services.Get_Task_Reports ---> Method:{\"post\":true}"  Service : task_crud.services.js
+2021-09-24T08:13:59.220Z info: 
+    "Route :/create_task ---> Type: Response ---> Sending:{\"title\":\"Task title1\",\"description\":\"Test task\",\"due_date_time\":\"2019-02-18 11:15:45\",\"completed_task\":0,\"user_id\":2} ---> report_services.Get_Task_Reports{\"createdAt\":{\"val\":\"CURRENT_TIMESTAMP\"},\"updatedAt\":{\"val\":\"CURRENT_TIMESTAMP\"},\"creation_date_time\":{\"val\":\"CURRENT_TIMESTAMP\"},\"id\":16,\"title\":\"Task title1\",\"description\":\"Test task\",\"attachment\":\"\",\"due_date_time\":\"2019-02-18T06:15:45.000Z\",\"completed_task\":false,\"task_status\":\"pending\",\"user_id\":2} ---> Method:{\"post\":true}"  Service : task_crud.services.js
+2021-09-24T08:14:45.726Z info: 
+    "Route :/create_task ---> Type: Request ---> Sending:{\"title\":\"Task title1\",\"description\":\"Test task\",\"due_date_time\":\"2019-02-18 11:15:45\",\"completed_task\":0,\"user_id\":2} ---> report_services.Get_Task_Reports ---> Method:{\"post\":true}"  Service : task_crud.services.js
+2021-09-24T08:14:45.786Z info: 
+    "Route :/create_task ---> Type: Response ---> Sending:{\"title\":\"Task title1\",\"description\":\"Test task\",\"due_date_time\":\"2019-02-18 11:15:45\",\"completed_task\":0,\"user_id\":2} ---> report_services.Get_Task_Reports{\"createdAt\":{\"val\":\"CURRENT_TIMESTAMP\"},\"updatedAt\":{\"val\":\"CURRENT_TIMESTAMP\"},\"creation_date_time\":{\"val\":\"CURRENT_TIMESTAMP\"},\"id\":17,\"title\":\"Task title1\",\"description\":\"Test task\",\"attachment\":\"\",\"due_date_time\":\"2019-02-18T06:15:45.000Z\",\"completed_task\":false,\"task_status\":\"pending\",\"user_id\":2} ---> Method:{\"post\":true}"  Service : task_crud.services.js
+2021-09-24T08:16:29.587Z info: 
+    "Route :/upload_attachment/:task_id ---> Type: Request ---> Sending:\"1\" ---> Task_services.Upload_Attachment ---> Method:{\"patch\":true}"  Service : task_crud.services.js
+2021-09-24T08:17:14.537Z info: 
+    "Route :/upload_attachment/:task_id ---> Type: Request ---> Sending:\"1\" ---> Task_services.Upload_Attachment ---> Method:{\"patch\":true}"  Service : task_crud.services.js
+2021-09-24T08:17:14.575Z info: 
+    "Route :/upload_attachment/:task_id ---> Type: Response ---> Sending:\"1\" ---> Task_services.Upload_Attachment 1 ---> Method:{\"patch\":true}"  Service : task_crud.services.js
+2021-09-24T08:18:47.067Z info: 
+    "Route :/get_tasks ---> Type: Request ---> Sending:{} ---> Task_services.Show_All_Tasks ---> Method:{\"get\":true}"  Service : task_crud.services.js
+2021-09-24T08:18:47.100Z info: 
+    "Route :/get_tasks ---> Type: Response ---> Sending:{} ---> Task_services.Upload_Attachment [object SequelizeInstance:Alloted_Tasks],[object SequelizeInstance:Alloted_Tasks],[object SequelizeInstance:Alloted_Tasks],[object SequelizeInstance:Alloted_Tasks],[object SequelizeInstance:Alloted_Tasks],[object SequelizeInstance:Alloted_Tasks],[object SequelizeInstance:Alloted_Tasks],[object SequelizeInstance:Alloted_Tasks],[object SequelizeInstance:Alloted_Tasks],[object SequelizeInstance:Alloted_Tasks],[object SequelizeInstance:Alloted_Tasks],[object SequelizeInstance:Alloted_Tasks],[object SequelizeInstance:Alloted_Tasks],[object SequelizeInstance:Alloted_Tasks],[object SequelizeInstance:Alloted_Tasks],[object SequelizeInstance:Alloted_Tasks],[object SequelizeInstance:Alloted_Tasks] ---> Method:{\"get\":true}"  Service : task_crud.services.js
+2021-09-24T08:46:44.278Z info: 
+    "Route :/update_task_status ---> Type: Request ---> Sending:{\"id\":1,\"title\":\"New updates\",\"attachment\":\"HAHAHA\",\"task_status\":\"completed\"} ---> Task_services.Update_Task_Status ---> Method:{\"patch\":true}"  Service : task_crud.services.js
+2021-09-24T08:46:44.303Z info: 
+    "Route :/update_task_status ---> Type: Response ---> Sending:{\"title\":\"New updates\",\"task_status\":\"completed\"} ---> Task_services.Update_Task_Status 1 ---> Method:{\"patch\":true}"  Service : task_crud.services.js
+2021-09-24T08:48:14.674Z info: 
+    "Route :/attachments/download_attachment/:task_id ---> Type: Request ---> Sending:{} ---> Task_services.Download_Task_Attachment ---> Method:{\"get\":true}"  Service : task_crud.services.js
+2021-09-24T08:48:14.709Z info: 
+    "Route :/attachments/download_attachment/:task_id ---> Type: Response ---> Sending:{} ---> Task_services.Download_Task_Attachment./database/images/1632377175470.jpeg ---> Method:{\"get\":true}"  Service : task_crud.services.js
+2021-09-24T08:50:30.844Z info: 
+    "Route :/similar_tasks ---> Type: Request ---> Sending:{} ---> Task_services.Show_Similar_Tasks ---> Method:{\"get\":true}"  Service : task_crud.services.js
+2021-09-24T08:50:30.881Z info: 
+    "Route :/similar_tasks ---> Type: Response ---> Sending:{} ---> Task_services.Show_similar_Tasks[object Object] ---> Method:{\"get\":true}"  Service : task_crud.services.js
+2021-09-24T08:51:17.318Z info: 
+    "Route :/delete_task/:id ---> Type: Request ---> Sending:{} ---> Task_services.DeleteTask ---> Method:{\"delete\":true}"  Service : task_crud.services.js
+2021-09-24T08:51:17.348Z info: 
+    "Route :/delete_task/:id ---> Type: Response ---> Sending:{} ---> Task_services.Delete_Task1 ---> Method:{\"delete\":true}"  Service : task_crud.services.js
+2021-09-24T09:18:11.613Z info: 
+    "Route :/login ---> Type: Request ---> Sending:{\"email\":\"ha55ana4bar@gmail.com\",\"passwd\":\"test123\"} ---> User_services.Login_User ---> Method:{\"post\":true}"  Service : user_crud.services.js
+2021-09-24T09:18:11.698Z info: 
+    "Route :/login ---> Type: Response ---> Sending:{\"email\":\"ha55ana4bar@gmail.com\",\"passwd\":\"test123\"} ---> User_services.Get_Task_Reports\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImhhNTVhbmE0YmFyQGdtYWlsLmNvbSIsInBhc3N3ZCI6InRlc3QxMjMiLCJpYXQiOjE2MzI0NzUwOTEsImV4cCI6MTYzMjQ4NTg5MX0.HRjtbGOsTPXIg3qoSKXxDBLRZl5nywfT0TCFg1MVm_k\" ---> Method:{\"post\":true}"  Service : user_crud.services.js
+2021-09-24T09:20:03.845Z info: 
+    "Route :/sign_up ---> Type: Response ---> Sending:{\"username\":\"Hassan\",\"email\":\"ha55ana4bar@gmail.com\",\"passwd\":\"$2b$10$rE8VtKFXKKsfcN.ISqhoROlN0/zHgvSGlN4iqDMB6ageWsa278m0i\"} ---> User_services.Sing_Up_Usertrue ---> Method:{\"post\":true}"  Service : user_crud.services.js
+2021-09-24T09:21:24.101Z info: 
+    "Route :/sign_up ---> Type: Request ---> Sending:{\"username\":\"Hassan\",\"email\":\"ha55ana4bar@gmail.com\",\"passwd\":\"test123\"} ---> User_services.SingUp ---> Method:{\"post\":true}"  Service : user_crud.services.js
+2021-09-24T09:21:24.195Z info: 
+    "Route :/sign_up ---> Type: Response ---> Sending:{\"username\":\"Hassan\",\"email\":\"ha55ana4bar@gmail.com\",\"passwd\":\"$2b$10$2ps3nf6GYKqsClfPoTBUUe2OH0B1jKI4e5Ee.qji186/WtSMr9C2O\"} ---> User_services.Sing_Up_Usertrue ---> Method:{\"post\":true}"  Service : user_crud.services.js
+2021-09-24T09:22:33.780Z info: 
+    "Route :/sign_up ---> Type: Request ---> Sending:{\"username\":\"Hassan\",\"email\":\"ha55ana4bar@gmail.com\",\"passwd\":\"test123\"} ---> User_services.SingUp ---> Method:{\"post\":true}"  Service : user_crud.services.js
+2021-09-24T09:22:33.877Z info: 
+    "Route :/sign_up ---> Type: Response ---> Sending:{\"username\":\"Hassan\",\"email\":\"ha55ana4bar@gmail.com\",\"passwd\":\"$2b$10$ZYFZ/4deRGYY7sHGmGTW4esJ.43s2cpIIxMy88bBIamBUy0aUZgBi\"} ---> User_services.Sing_Up_Usertrue ---> Method:{\"post\":true}"  Service : user_crud.services.js
+2021-09-24T09:26:11.983Z info: 
+    "Route :/login ---> Type: Request ---> Sending:{\"email\":\"ha55ana4bar@gmail.com\",\"passwd\":\"test123\"} ---> User_services.Login_User ---> Method:{\"post\":true}"  Service : user_crud.services.js
+2021-09-24T09:26:12.073Z info: 
+    "Route :/login ---> Type: Response ---> Sending:{\"email\":\"ha55ana4bar@gmail.com\",\"passwd\":\"test123\"} ---> User_services.Get_Task_Reports\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImhhNTVhbmE0YmFyQGdtYWlsLmNvbSIsInBhc3N3ZCI6InRlc3QxMjMiLCJpYXQiOjE2MzI0NzU1NzIsImV4cCI6MTYzMjQ4NjM3Mn0.LhuES_rGA5i72Ygf0E5KKRslWl85Ovh9OKwI7bfcYtU\" ---> Method:{\"post\":true}"  Service : user_crud.services.js
+2021-09-24T09:27:00.080Z info: 
+    "Route :/login ---> Type: Request ---> Sending:{\"email\":\"ha55ana4bar@gmail.com\",\"passwd\":\"test123\"} ---> User_services.Login_User ---> Method:{\"post\":true}"  Service : user_crud.services.js
+2021-09-24T09:27:00.166Z info: 
+    "Route :/login ---> Type: Response ---> Sending:{\"email\":\"ha55ana4bar@gmail.com\",\"passwd\":\"test123\"} ---> User_services.Get_Task_Reports\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImhhNTVhbmE0YmFyQGdtYWlsLmNvbSIsInBhc3N3ZCI6InRlc3QxMjMiLCJpYXQiOjE2MzI0NzU2MjAsImV4cCI6MTYzMjQ4NjQyMH0.OcNOimNXkKiWb2K6MvRDHhWQfXuSevQetcULocqcKMI\" ---> Method:{\"post\":true}"  Service : user_crud.services.js
+2021-09-24T09:27:23.956Z info: 
+    "Route :/login ---> Type: Request ---> Sending:{\"email\":\"ha55ana4bar@gmail.com\",\"passwd\":\"test123\"} ---> User_services.Login_User ---> Method:{\"post\":true}"  Service : user_crud.services.js
+2021-09-24T09:27:24.049Z info: 
+    "Route :/login ---> Type: Response ---> Sending:{\"email\":\"ha55ana4bar@gmail.com\",\"passwd\":\"test123\"} ---> User_services.Get_Task_Reports\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImhhNTVhbmE0YmFyQGdtYWlsLmNvbSIsInBhc3N3ZCI6InRlc3QxMjMiLCJpYXQiOjE2MzI0NzU2NDQsImV4cCI6MTYzMjQ4NjQ0NH0.Q38u4cg7HoAUAd8aQUKUlncynzBlovZG5p7plq1vxxQ\" ---> Method:{\"post\":true}"  Service : user_crud.services.js
+2021-09-24T09:27:34.169Z info: 
+    "Route :/all_users ---> Type: Request ---> Sending:{} ---> User_services.ShowUsers ---> Method:{\"get\":true}"  Service : user_crud.services.js
+2021-09-24T09:27:34.173Z info: 
+    "Route :/all_users ---> Type: Response ---> Sending:{} ---> User_services.Show_All_Users[{\"id\":1,\"username\":\"Hassan\",\"email\":\"ha55ana4bar@gmail.com\",\"passwd\":\"$2b$10$ZYFZ/4deRGYY7sHGmGTW4esJ.43s2cpIIxMy88bBIamBUy0aUZgBi\",\"OauthUser\":false,\"createdAt\":\"2021-09-24T09:24:19.000Z\",\"updatedAt\":\"2021-09-24T09:24:19.000Z\"}] ---> Method:{\"get\":true}"  Service : user_crud.services.js
+2021-09-24T09:32:08.233Z info: 
+    "Route :/update_user ---> Type: Request ---> Sending:{\"username\":\"updated_hassan\",\"email\":\"ha55ana4bar@gmail.com\"} ---> User_services.Update_User ---> Method:{\"put\":true}"  Service : user_crud.services.js
+2021-09-24T09:32:08.270Z info: 
+    "Route :/update_user ---> Type: Response ---> Sending:{\"username\":\"updated_hassan\",\"email\":\"ha55ana4bar@gmail.com\"} ---> User_services.Update_User->[1] ---> Method:{\"put\":true}"  Service : user_crud.services.js
+2021-09-24T09:37:15.592Z info: 
+    "Route :/request_password_change ---> Type: Request ---> Sending:{} ---> User_services.Reqiest_password_change ---> Method:{\"get\":true}"  Service : user_crud.services.js
+2021-09-24T09:37:15.604Z info: 
+    "Route :/request_password_change ---> Type: Response ---> Sending:{} ---> User_services.Reqiest_password_change->true ---> Method:{\"get\":true}"  Service : user_crud.services.js
+2021-09-24T09:39:13.201Z info: 
+    "Route :/request_password_change ---> Type: Request ---> Sending:{} ---> User_services.Request_password_change ---> Method:{\"get\":true}"  Service : user_crud.services.js
+2021-09-24T09:39:13.216Z info: 
+    "Route :/request_password_change ---> Type: Response ---> Sending:{} ---> User_services.Request_password_change->true ---> Method:{\"get\":true}"  Service : user_crud.services.js
+2021-09-24T09:39:43.970Z info: 
+    "Route :/request_password_change/changepass/:token ---> Type: Request ---> Sending:{} ---> User_services.Verify_password_change_token ---> Method:{\"get\":true}"  Service : user_crud.services.js
+2021-09-24T09:40:10.718Z info: 
+    "Route :/request_password_change/changepass/:token ---> Type: Request ---> Sending:{} ---> User_services.Verify_password_change_token ---> Method:{\"get\":true}"  Service : user_crud.services.js
+2021-09-24T09:40:10.727Z info: 
+    "Route :/request_password_change/changepass/:token ---> Type: Response ---> Sending:{} ---> User_services.Verify_password_change_token->\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImhhNTVhbmE0YmFyQGdtYWlsLmNvbSIsImlhdCI6MTYzMjQ3NTY0NCwiZXhwIjoxNjMyNDg2NDQ0fQ.BUSP2GGuC0DwNDj_55syDk8AUeQJCpnHPO4CgZWouGc\" ---> Method:{\"get\":true}"  Service : user_crud.services.js
+2021-09-24T09:41:25.022Z info: 
+    "Route :/request_password/reset ---> Type: Request ---> Sending:{\"passwd\":\"npassword1\"} ---> User_services.Change_Password_User ---> Method:{\"patch\":true}"  Service : user_crud.services.js
+2021-09-24T09:41:25.109Z info: 
+    "Route :/request_password/reset ---> Type: Response ---> Sending:{\"passwd\":\"npassword1\"} ---> User_services.Change_password_User->true ---> Method:{\"patch\":true}"  Service : user_crud.services.js
+2021-09-24T09:42:47.835Z info: 
+    "Route :/delete_user/:id ---> Type: Request ---> Sending:{} ---> User_services.Delete_User ---> Method:{\"delete\":true}"  Service : user_crud.services.js
+2021-09-24T09:42:47.866Z info: 
+    "Route :/delete_user/:id ---> Type: Response ---> Sending:{} ---> User_services.Delete_User->1 ---> Method:{\"delete\":true}"  Service : user_crud.services.js
+2021-09-24T09:42:50.652Z info: 
+    "Route :/all_users ---> Type: Request ---> Sending:{} ---> User_services.ShowUsers ---> Method:{\"get\":true}"  Service : user_crud.services.js
+2021-09-24T09:42:50.658Z info: 
+    "Route :/all_users ---> Type: Response ---> Sending:{} ---> User_services.Show_All_Users[] ---> Method:{\"get\":true}"  Service : user_crud.services.js
+2021-09-24T09:42:56.996Z info: 
+    "Route :/create_task ---> Type: Request ---> Sending:{\"title\":\"Task title1\",\"description\":\"Test task\",\"due_date_time\":\"2019-02-18 11:15:45\",\"completed_task\":0,\"user_id\":2} ---> report_services.Get_Task_Reports ---> Method:{\"post\":true}"  Service : task_crud.services.js
+2021-09-24T09:42:57.013Z info: 
+    "Route :/create_task ---> Type: Response ---> Sending:{\"title\":\"Task title1\",\"description\":\"Test task\",\"due_date_time\":\"2019-02-18 11:15:45\",\"completed_task\":0,\"user_id\":2} ---> report_services.Get_Task_Reportsundefined ---> Method:{\"post\":true}"  Service : task_crud.services.js
+2021-09-24T09:43:02.563Z info: 
+    "Route :/delete_user/:id ---> Type: Request ---> Sending:{} ---> User_services.Delete_User ---> Method:{\"delete\":true}"  Service : user_crud.services.js
+2021-09-24T09:43:02.564Z info: 
+    "Route :/delete_user/:id ---> Type: Response ---> Sending:{} ---> User_services.Delete_User->0 ---> Method:{\"delete\":true}"  Service : user_crud.services.js
