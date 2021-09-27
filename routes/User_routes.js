@@ -66,7 +66,7 @@ router.delete(
 router.get(
   "/request_password_change",
   AuthenticationMiddleware.VerifyToken,
-  user_controller.RequestPassw  ordChange
+  user_controller.RequestPasswordChange
 );
 
 router.get(
