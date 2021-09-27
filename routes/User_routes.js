@@ -24,7 +24,7 @@ router.get("/sl_up_fb", (req, res) => {
 
 // route to ensure unsecuesful login
 router.get("/failed_fb_login", (req, res) => {
-  res.send("Failed facebook login");
+  res.status(400).send("Failed facebook login");
 });
 
 //This endpoint connects the User to Facebook
@@ -38,17 +38,8 @@ router.get(
   require("../middleware/facebook_db_checker.middleware").VerifyUserinDB,
   async function (req, res) {
     // Successful authentication, process flow is diverted to check if user exists in db .
-    res.redirect("/api/users/auth/facebook/parse");
   }
 );
-
-/*
-route to confirm user has successfully loged in
-Never used since endpoint route returns jwt token in a res send 
-*/
-router.get("/auth/facebook/parse", async (req, res) => {
-  res.json("Facebook User Loged in Succesfully");
-});
 
 router.get("/authentication/activate/:token", user_controller.CreateUser);
 
@@ -75,7 +66,7 @@ router.delete(
 router.get(
   "/request_password_change",
   AuthenticationMiddleware.VerifyToken,
-  user_controller.RequestPasswordChange
+  user_controller.RequestPassw  ordChange
 );
 
 router.get(

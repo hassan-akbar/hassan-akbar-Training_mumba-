@@ -17,7 +17,11 @@ router.get("/", (req, res) => {
 });
 
 //route to create a task
-router.post("/create_task", task_controller.CreateTask);
+router.post(
+  "/create_task",
+  AuthenticationMiddleware,
+  task_controller.CreateTask
+);
 
 //route to upload an attachment after creating a task
 router.patch(
