@@ -17,7 +17,7 @@ const info_logger = (req, Type, function_call) => {
 
 module.exports.LoginUser = async (req, res) => {
   info_logger(req, "Request", "User_services.Login_User");
-  const user_info = req;
+  const user_info = req.body;
   const access_token = await User_services.Login_User(user_info);
 
   if (access_token == "OauthUser") {
