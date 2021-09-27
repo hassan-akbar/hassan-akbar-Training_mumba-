@@ -29,7 +29,9 @@ module.exports.CreateTask = async (req, res, next) => {
       info_logger(
         req,
         "Response",
-        `report_services.Get_Task_Reports${JSON.stringify(result_confirmation)}`
+        `report_services.Get_Task_Reports->${JSON.stringify(
+          result_confirmation
+        )}`
       );
       if (result_confirmation) {
         res

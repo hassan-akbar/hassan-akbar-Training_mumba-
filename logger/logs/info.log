@@ -100,3 +100,5 @@
     "Route :/delete_user/:id ---> Type: Request ---> Sending:{} ---> User_services.Delete_User ---> Method:{\"delete\":true}"  Service : user_crud.services.js
 2021-09-24T09:43:02.564Z info: 
     "Route :/delete_user/:id ---> Type: Response ---> Sending:{} ---> User_services.Delete_User->0 ---> Method:{\"delete\":true}"  Service : user_crud.services.js
+2021-09-24T10:00:52.940Z info: 
+    "Route :/login ---> Type: Request ---> Sending:{\"email\":\"ha55ana4bar@gmail.com\",\"passwd\":\"test123\"} ---> User_services.Login_User ---> Method:{\"post\":true}"  Service : user_crud.services.js
