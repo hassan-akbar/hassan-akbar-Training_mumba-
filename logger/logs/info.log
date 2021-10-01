@@ -7694,3 +7694,123 @@
     "Route :/max_completions_day ---> Type: Request ---> User:ha55ana4bar@gmail.com ---> report_services.Get_Max_Dat_completions ---> Method:{\"get\":true}"  Service : report.services.js
 2021-10-01T07:20:13.754Z info: 
     "Route :/max_completions_day ---> Type: Response ---> User:ha55ana4bar@gmail.com ---> report_services.Get_Max_Day_completions undefined ---> Method:{\"get\":true}"  Service : report.services.js
+2021-10-01T07:30:13.660Z info: 
+    "Route :/login ---> Type: Request ---> Sending:{\"email\":\"ha55ana4bar@gmail.com\",\"passwd\":\"test123\"} ---> User_services.Login_User ---> Method:{\"post\":true}"  Service : user_crud.services.js
+2021-10-01T07:30:13.738Z info: 
+    "Route :/login ---> Type: Response ---> Sending:{\"email\":\"ha55ana4bar@gmail.com\",\"passwd\":\"test123\"} ---> User_services.Get_Task_Reports\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImhhNTVhbmE0YmFyQGdtYWlsLmNvbSIsInBhc3N3ZCI6InRlc3QxMjMiLCJpYXQiOjE2MzMwNzM0MTMsImV4cCI6MTYzMzA4NDIxM30.jcYfdxSkR8lCmpbAFJuabEYhvxkt0caJGbcsgBP6AhI\" ---> Method:{\"post\":true}"  Service : user_crud.services.js
+2021-10-01T07:30:13.744Z info: 
+    "Route :/login ---> Type: Request ---> Sending:{\"email\":\"ha55ana4bar@gmail.com\",\"passwd\":\"test1233\"} ---> User_services.Login_User ---> Method:{\"post\":true}"  Service : user_crud.services.js
+2021-10-01T07:30:13.804Z info: 
+    "Route :/sign_up ---> Type: Request ---> Sending:{\"username\":\"Hassan\",\"email\":\"ha55ana4bar121@gmail.com\",\"passwd\":\"test123\"} ---> User_services.SingUp ---> Method:{\"post\":true}"  Service : user_crud.services.js
+2021-10-01T07:30:15.728Z info: 
+    "Route :/sign_up ---> Type: Request ---> Sending:{\"username\":\"Hassan\",\"email\":\"ha55ana4bar@gmail.com\",\"passwd\":\"test123\"} ---> User_services.SingUp ---> Method:{\"post\":true}"  Service : user_crud.services.js
+2021-10-01T07:30:15.734Z info: 
+    "Route :/all_users ---> Type: Request ---> Sending:{} ---> User_services.ShowUsers ---> Method:{\"get\":true}"  Service : user_crud.services.js
+2021-10-01T07:30:15.736Z info: 
+    "Route :/all_users ---> Type: Response ---> Sending:{} ---> User_services.Show_All_Users[{\"id\":1,\"username\":\"Hassan\",\"email\":\"ha55ana4bar@gmail.com\",\"passwd\":\"$2b$10$kBoAb8Q7tUz9GEofRrCaBeVz66r5GgJmAK2dknLYaKFf.bSaSR9.e\",\"OauthUser\":false,\"createdAt\":\"2021-10-01T07:17:17.000Z\",\"updatedAt\":\"2021-10-01T07:20:13.000Z\"}] ---> Method:{\"get\":true}"  Service : user_crud.services.js
+2021-10-01T07:30:15.739Z info: 
+    "Route :/update_user ---> Type: Request ---> Sending:{\"user_name\":\"haha\",\"email\":\"ha55ana4bar@gmail.com\"} ---> User_services.Update_User ---> Method:{\"put\":true}"  Service : user_crud.services.js
+2021-10-01T07:30:15.748Z info: 
+    "Route :/update_user ---> Type: Response ---> Sending:{\"user_name\":\"haha\",\"email\":\"ha55ana4bar@gmail.com\"} ---> User_services.Update_User->[1] ---> Method:{\"put\":true}"  Service : user_crud.services.js
+2021-10-01T07:30:15.751Z info: 
+    "Route :/delete_user/:id ---> Type: Request ---> Sending:{} ---> User_services.Delete_User ---> Method:{\"delete\":true}"  Service : user_crud.services.js
+2021-10-01T07:30:15.752Z info: 
+    "Route :/delete_user/:id ---> Type: Response ---> Sending:{} ---> User_services.Delete_User->0 ---> Method:{\"delete\":true}"  Service : user_crud.services.js
+2021-10-01T07:30:15.758Z info: 
+    "Route :/create_task ---> Type: Request ---> Sending:{\"title\":\"Task title1\",\"description\":\"Test task\",\"due_date_time\":\"2019-02-18 11:15:45\",\"completed_task\":0,\"user_id\":1} ---> report_services.Get_Task_Reports ---> Method:{\"post\":true}"  Service : task_crud.services.js
+2021-10-01T07:30:15.768Z info: 
+    "Route :/create_task ---> Type: Response ---> Sending:{\"title\":\"Task title1\",\"description\":\"Test task\",\"due_date_time\":\"2019-02-18 11:15:45\",\"completed_task\":0,\"user_id\":1} ---> report_services.Get_Task_Reports->{\"createdAt\":{\"val\":\"CURRENT_TIMESTAMP\"},\"updatedAt\":{\"val\":\"CURRENT_TIMESTAMP\"},\"creation_date_time\":{\"val\":\"CURRENT_TIMESTAMP\"},\"id\":4,\"title\":\"Task title1\",\"description\":\"Test task\",\"attachment\":\"\",\"due_date_time\":\"2019-02-18T06:15:45.000Z\",\"completed_task\":false,\"task_status\":\"pending\",\"user_id\":1} ---> Method:{\"post\":true}"  Service : task_crud.services.js
+2021-10-01T07:30:15.770Z info: 
+    "Route :/get_tasks ---> Type: Request ---> Sending:{} ---> Task_services.Show_All_Tasks ---> Method:{\"get\":true}"  Service : task_crud.services.js
+2021-10-01T07:30:15.774Z info: 
+    "Route :/get_tasks ---> Type: Response ---> Sending:{} ---> Task_services.Show_All_tasks [object SequelizeInstance:Alloted_Tasks],[object SequelizeInstance:Alloted_Tasks] ---> Method:{\"get\":true}"  Service : task_crud.services.js
+2021-10-01T07:30:15.780Z info: 
+    "Route :/update_task_status ---> Type: Request ---> Sending:{\"title\":\"Task Updated now\",\"description\":\"I updated this\",\"due_date_time\":\"2019-02-18 11:15:45\",\"completed_task\":\"1\",\"id\":4} ---> Task_services.Update_Task_Status ---> Method:{\"patch\":true}"  Service : task_crud.services.js
+2021-10-01T07:30:15.791Z info: 
+    "Route :/update_task_status ---> Type: Response ---> Sending:{\"title\":\"Task Updated now\",\"description\":\"I updated this\",\"due_date_time\":\"2019-02-18 11:15:45\",\"completed_task\":\"1\"} ---> Task_services.Update_Task_Status 1 ---> Method:{\"patch\":true}"  Service : task_crud.services.js
+2021-10-01T07:30:15.793Z info: 
+    "Route :/update_task_status ---> Type: Request ---> Sending:{\"title\":\"Task Updated now\",\"description\":\"I updated this\",\"due_date_time\":\"2019-02-18 11:15:45\",\"completed_task\":\"1\",\"id\":\"2221\"} ---> Task_services.Update_Task_Status ---> Method:{\"patch\":true}"  Service : task_crud.services.js
+2021-10-01T07:30:15.796Z info: 
+    "Route :/update_task_status ---> Type: Response ---> Sending:{\"title\":\"Task Updated now\",\"description\":\"I updated this\",\"due_date_time\":\"2019-02-18 11:15:45\",\"completed_task\":\"1\"} ---> Task_services.Update_Task_Status Permission Error ---> Method:{\"patch\":true}"  Service : task_crud.services.js
+2021-10-01T07:30:15.798Z info: 
+    "Route :/delete_task/:id ---> Type: Request ---> Sending:{} ---> Task_services.DeleteTask ---> Method:{\"delete\":true}"  Service : task_crud.services.js
+2021-10-01T07:30:15.801Z info: 
+    "Route :/delete_task/:id ---> Type: Response ---> Sending:{} ---> Task_services.Delete_Task->1 ---> Method:{\"delete\":true}"  Service : task_crud.services.js
+2021-10-01T07:30:15.804Z info: 
+    "Route :/delete_task/:id ---> Type: Request ---> Sending:{} ---> Task_services.DeleteTask ---> Method:{\"delete\":true}"  Service : task_crud.services.js
+2021-10-01T07:30:15.810Z info: 
+    "Route :/total_tasks ---> Type: Request ---> User:ha55ana4bar@gmail.com ---> report_services.Get_Task_Reports ---> Method:{\"get\":true}"  Service : report.services.js
+2021-10-01T07:30:15.814Z info: 
+    "Route :/total_tasks ---> Type: Response ---> User:ha55ana4bar@gmail.com ---> report_services.Get[{\"task_status\":\"pending\",\"count\":1}] ---> Method:{\"get\":true}"  Service : report.services.js
+2021-10-01T07:30:15.817Z info: 
+    "Route :/average_completed_tasks ---> Type: Request ---> User:ha55ana4bar@gmail.com ---> report_services.Get_Average_Completions ---> Method:{\"get\":true}"  Service : report.services.js
+2021-10-01T07:30:15.819Z info: 
+    "Route :/average_completed_tasks ---> Type: Response ---> User:ha55ana4bar@gmail.com ---> report_services.Get_Average_Completions [{\"total\":1,\"active_tasks\":\"0\",\"pending_tasks\":\"1\",\"completed_tasks\":\"0\",\"average_completions\":0}] ---> Method:{\"get\":true}"  Service : report.services.js
+2021-10-01T07:30:15.822Z info: 
+    "Route :/late_completions ---> Type: Request ---> User:ha55ana4bar@gmail.com ---> report_services.Get_Late_Completions ---> Method:{\"get\":true}"  Service : report.services.js
+2021-10-01T07:30:15.825Z info: 
+    "Route :/late_completions ---> Type: Response ---> User:ha55ana4bar@gmail.com ---> report_services.Get_Late_Completions false ---> Method:{\"get\":true}"  Service : report.services.js
+2021-10-01T07:30:15.828Z info: 
+    "Route :/max_completions_day ---> Type: Request ---> User:ha55ana4bar@gmail.com ---> report_services.Get_Max_Dat_completions ---> Method:{\"get\":true}"  Service : report.services.js
+2021-10-01T07:30:15.832Z info: 
+    "Route :/max_completions_day ---> Type: Response ---> User:ha55ana4bar@gmail.com ---> report_services.Get_Max_Day_completions undefined ---> Method:{\"get\":true}"  Service : report.services.js
+2021-10-01T07:31:43.491Z info: 
+    "Route :/login ---> Type: Request ---> Sending:{\"email\":\"ha55ana4bar@gmail.com\",\"passwd\":\"test123\"} ---> User_services.Login_User ---> Method:{\"post\":true}"  Service : user_crud.services.js
+2021-10-01T07:31:43.571Z info: 
+    "Route :/login ---> Type: Response ---> Sending:{\"email\":\"ha55ana4bar@gmail.com\",\"passwd\":\"test123\"} ---> User_services.Get_Task_Reports\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImhhNTVhbmE0YmFyQGdtYWlsLmNvbSIsInBhc3N3ZCI6InRlc3QxMjMiLCJpYXQiOjE2MzMwNzM1MDMsImV4cCI6MTYzMzA4NDMwM30.T5fJ9XcyA-Txn8BkZvHOKaV7GLc-Z0ruuRq9b6cJP8o\" ---> Method:{\"post\":true}"  Service : user_crud.services.js
+2021-10-01T07:31:43.578Z info: 
+    "Route :/login ---> Type: Request ---> Sending:{\"email\":\"ha55ana4bar@gmail.com\",\"passwd\":\"test1233\"} ---> User_services.Login_User ---> Method:{\"post\":true}"  Service : user_crud.services.js
+2021-10-01T07:31:43.637Z info: 
+    "Route :/sign_up ---> Type: Request ---> Sending:{\"username\":\"Hassan\",\"email\":\"ha55ana4bar121@gmail.com\",\"passwd\":\"test123\"} ---> User_services.SingUp ---> Method:{\"post\":true}"  Service : user_crud.services.js
+2021-10-01T07:31:45.169Z info: 
+    "Route :/sign_up ---> Type: Request ---> Sending:{\"username\":\"Hassan\",\"email\":\"ha55ana4bar@gmail.com\",\"passwd\":\"test123\"} ---> User_services.SingUp ---> Method:{\"post\":true}"  Service : user_crud.services.js
+2021-10-01T07:31:45.184Z info: 
+    "Route :/all_users ---> Type: Request ---> Sending:{} ---> User_services.ShowUsers ---> Method:{\"get\":true}"  Service : user_crud.services.js
+2021-10-01T07:31:45.189Z info: 
+    "Route :/all_users ---> Type: Response ---> Sending:{} ---> User_services.Show_All_Users[{\"id\":1,\"username\":\"Hassan\",\"email\":\"ha55ana4bar@gmail.com\",\"passwd\":\"$2b$10$kBoAb8Q7tUz9GEofRrCaBeVz66r5GgJmAK2dknLYaKFf.bSaSR9.e\",\"OauthUser\":false,\"createdAt\":\"2021-10-01T07:17:17.000Z\",\"updatedAt\":\"2021-10-01T07:30:15.000Z\"}] ---> Method:{\"get\":true}"  Service : user_crud.services.js
+2021-10-01T07:31:45.194Z info: 
+    "Route :/update_user ---> Type: Request ---> Sending:{\"user_name\":\"haha\",\"email\":\"ha55ana4bar@gmail.com\"} ---> User_services.Update_User ---> Method:{\"put\":true}"  Service : user_crud.services.js
+2021-10-01T07:31:45.206Z info: 
+    "Route :/update_user ---> Type: Response ---> Sending:{\"user_name\":\"haha\",\"email\":\"ha55ana4bar@gmail.com\"} ---> User_services.Update_User->[1] ---> Method:{\"put\":true}"  Service : user_crud.services.js
+2021-10-01T07:31:45.210Z info: 
+    "Route :/delete_user/:id ---> Type: Request ---> Sending:{} ---> User_services.Delete_User ---> Method:{\"delete\":true}"  Service : user_crud.services.js
+2021-10-01T07:31:45.213Z info: 
+    "Route :/delete_user/:id ---> Type: Response ---> Sending:{} ---> User_services.Delete_User->0 ---> Method:{\"delete\":true}"  Service : user_crud.services.js
+2021-10-01T07:31:45.221Z info: 
+    "Route :/create_task ---> Type: Request ---> Sending:{\"title\":\"Task title1\",\"description\":\"Test task\",\"due_date_time\":\"2019-02-18 11:15:45\",\"completed_task\":0,\"user_id\":1} ---> report_services.Get_Task_Reports ---> Method:{\"post\":true}"  Service : task_crud.services.js
+2021-10-01T07:31:45.233Z info: 
+    "Route :/create_task ---> Type: Response ---> Sending:{\"title\":\"Task title1\",\"description\":\"Test task\",\"due_date_time\":\"2019-02-18 11:15:45\",\"completed_task\":0,\"user_id\":1} ---> report_services.Get_Task_Reports->{\"createdAt\":{\"val\":\"CURRENT_TIMESTAMP\"},\"updatedAt\":{\"val\":\"CURRENT_TIMESTAMP\"},\"creation_date_time\":{\"val\":\"CURRENT_TIMESTAMP\"},\"id\":5,\"title\":\"Task title1\",\"description\":\"Test task\",\"attachment\":\"\",\"due_date_time\":\"2019-02-18T06:15:45.000Z\",\"completed_task\":false,\"task_status\":\"pending\",\"user_id\":1} ---> Method:{\"post\":true}"  Service : task_crud.services.js
+2021-10-01T07:31:45.235Z info: 
+    "Route :/get_tasks ---> Type: Request ---> Sending:{} ---> Task_services.Show_All_Tasks ---> Method:{\"get\":true}"  Service : task_crud.services.js
+2021-10-01T07:31:45.238Z info: 
+    "Route :/get_tasks ---> Type: Response ---> Sending:{} ---> Task_services.Show_All_tasks [object SequelizeInstance:Alloted_Tasks],[object SequelizeInstance:Alloted_Tasks] ---> Method:{\"get\":true}"  Service : task_crud.services.js
+2021-10-01T07:31:45.245Z info: 
+    "Route :/update_task_status ---> Type: Request ---> Sending:{\"title\":\"Task Updated now\",\"description\":\"I updated this\",\"due_date_time\":\"2019-02-18 11:15:45\",\"completed_task\":\"1\",\"id\":5} ---> Task_services.Update_Task_Status ---> Method:{\"patch\":true}"  Service : task_crud.services.js
+2021-10-01T07:31:45.256Z info: 
+    "Route :/update_task_status ---> Type: Response ---> Sending:{\"title\":\"Task Updated now\",\"description\":\"I updated this\",\"due_date_time\":\"2019-02-18 11:15:45\",\"completed_task\":\"1\"} ---> Task_services.Update_Task_Status 1 ---> Method:{\"patch\":true}"  Service : task_crud.services.js
+2021-10-01T07:31:45.258Z info: 
+    "Route :/update_task_status ---> Type: Request ---> Sending:{\"title\":\"Task Updated now\",\"description\":\"I updated this\",\"due_date_time\":\"2019-02-18 11:15:45\",\"completed_task\":\"1\",\"id\":\"2221\"} ---> Task_services.Update_Task_Status ---> Method:{\"patch\":true}"  Service : task_crud.services.js
+2021-10-01T07:31:45.261Z info: 
+    "Route :/update_task_status ---> Type: Response ---> Sending:{\"title\":\"Task Updated now\",\"description\":\"I updated this\",\"due_date_time\":\"2019-02-18 11:15:45\",\"completed_task\":\"1\"} ---> Task_services.Update_Task_Status Permission Error ---> Method:{\"patch\":true}"  Service : task_crud.services.js
+2021-10-01T07:31:45.264Z info: 
+    "Route :/delete_task/:id ---> Type: Request ---> Sending:{} ---> Task_services.DeleteTask ---> Method:{\"delete\":true}"  Service : task_crud.services.js
+2021-10-01T07:31:45.268Z info: 
+    "Route :/delete_task/:id ---> Type: Response ---> Sending:{} ---> Task_services.Delete_Task->1 ---> Method:{\"delete\":true}"  Service : task_crud.services.js
+2021-10-01T07:31:45.276Z info: 
+    "Route :/delete_task/:id ---> Type: Request ---> Sending:{} ---> Task_services.DeleteTask ---> Method:{\"delete\":true}"  Service : task_crud.services.js
+2021-10-01T07:31:45.287Z info: 
+    "Route :/total_tasks ---> Type: Request ---> User:ha55ana4bar@gmail.com ---> report_services.Get_Task_Reports ---> Method:{\"get\":true}"  Service : report.services.js
+2021-10-01T07:31:45.291Z info: 
+    "Route :/total_tasks ---> Type: Response ---> User:ha55ana4bar@gmail.com ---> report_services.Get[{\"task_status\":\"pending\",\"count\":1}] ---> Method:{\"get\":true}"  Service : report.services.js
+2021-10-01T07:31:45.295Z info: 
+    "Route :/average_completed_tasks ---> Type: Request ---> User:ha55ana4bar@gmail.com ---> report_services.Get_Average_Completions ---> Method:{\"get\":true}"  Service : report.services.js
+2021-10-01T07:31:45.298Z info: 
+    "Route :/average_completed_tasks ---> Type: Response ---> User:ha55ana4bar@gmail.com ---> report_services.Get_Average_Completions [{\"total\":1,\"active_tasks\":\"0\",\"pending_tasks\":\"1\",\"completed_tasks\":\"0\",\"average_completions\":0}] ---> Method:{\"get\":true}"  Service : report.services.js
+2021-10-01T07:31:45.301Z info: 
+    "Route :/late_completions ---> Type: Request ---> User:ha55ana4bar@gmail.com ---> report_services.Get_Late_Completions ---> Method:{\"get\":true}"  Service : report.services.js
+2021-10-01T07:31:45.304Z info: 
+    "Route :/late_completions ---> Type: Response ---> User:ha55ana4bar@gmail.com ---> report_services.Get_Late_Completions false ---> Method:{\"get\":true}"  Service : report.services.js
+2021-10-01T07:31:45.307Z info: 
+    "Route :/max_completions_day ---> Type: Request ---> User:ha55ana4bar@gmail.com ---> report_services.Get_Max_Dat_completions ---> Method:{\"get\":true}"  Service : report.services.js
+2021-10-01T07:31:45.311Z info: 
+    "Route :/max_completions_day ---> Type: Response ---> User:ha55ana4bar@gmail.com ---> report_services.Get_Max_Day_completions undefined ---> Method:{\"get\":true}"  Service : report.services.js
