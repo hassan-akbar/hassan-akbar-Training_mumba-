@@ -23,7 +23,7 @@ module.exports.LoginUser = async (req, res) => {
   if (access_token == "OauthUser") {
     res.status(403).send("Oauth Users cant login");
   } else if (access_token) {
-    console.log(access_token); // remove this later only for ease of postman
+    //console.log(access_token); // remove this later only for ease of postman
     info_logger(
       req,
       "Response",
@@ -192,7 +192,7 @@ module.exports.DeleteUser = async (req, res) => {
       if (deleted_user) {
         res.status(200).send("Deleted user succesfully");
       } else {
-        res.status(400).send("Unsucessfull deletion");
+        res.status(400).send("Unsucessfull deletion : Invalid User ID");
       }
     })
     .catch(err_handler);

@@ -71,7 +71,7 @@ module.exports.GetLateCompletions = async (req, res, next) => {
       if (late_completion_results) {
         res.status(200).send(late_completion_results);
       } else {
-        res.status(401).send("Invalid query");
+        res.status(204).send("No Late completions");
       }
     })
     .catch(err_handler);
@@ -88,7 +88,7 @@ module.exports.GetMaxDayCompletions = async (req, res, next) => {
     if (Max_date) {
       res.status(200).send(Max_date);
     } else {
-      res.status(401).send("error");
+      res.status(400).send("No such day exists");
     }
   });
 };

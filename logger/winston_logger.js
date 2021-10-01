@@ -47,6 +47,9 @@ var transport_config = [
     ),
   }),
 ];
+if (process.env.NODE_ENV == "test") {
+  transport_config.pop();
+}
 
 const logger = createLogger({
   transports: transport_config,
