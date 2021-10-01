@@ -1350,3 +1350,15 @@
     at IncomingMessage.emit (events.js:203:15)
     at endReadableNT (_stream_readable.js:1145:12)
     at process._tickCallback (internal/process/next_tick.js:63:19)  Service : user-service
+2021-10-01T07:30:15.697Z error: 
+    Error: Sandbox subdomains are for test purposes only. Please add your own domain or add the address to authorized recipients in Account Settings.
+    at IncomingMessage.<anonymous> (/home/emumba/Documents/task_manager_training/node_modules/mailgun-js/lib/request.js:228:15)
+    at IncomingMessage.emit (events.js:203:15)
+    at endReadableNT (_stream_readable.js:1145:12)
+    at process._tickCallback (internal/process/next_tick.js:63:19)  Service : user-service
+2021-10-01T07:31:45.155Z error: 
+    Error: Sandbox subdomains are for test purposes only. Please add your own domain or add the address to authorized recipients in Account Settings.
+    at IncomingMessage.<anonymous> (/home/emumba/Documents/task_manager_training/node_modules/mailgun-js/lib/request.js:228:15)
+    at IncomingMessage.emit (events.js:203:15)
+    at endReadableNT (_stream_readable.js:1145:12)
+    at process._tickCallback (internal/process/next_tick.js:63:19)  Service : user-service
