@@ -1,7 +1,7 @@
 const Tasks = require("../models/index_models").Tasks;
 const Users = require("../models/index_models").Users;
 const fs = require("fs");
-const { Op } = require("sequelize");
+const { Op, Sequelize } = require("sequelize");
 const StringSimilarity = require("string-similarity");
 const err_handler = (err) => {
   console.log(`Error : ${err}`);
@@ -167,8 +167,6 @@ module.exports.Update_Task_Status = async (task_info, user_info) => {
   //deleting since using task_info for update query
   delete task_info.id;
   delete task_info.attachment;
-
-  console.log(task_info);
 
   /**
    * This is a left outer join

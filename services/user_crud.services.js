@@ -72,7 +72,7 @@ module.exports.Sign_Up_User = async (user_info) => {
     user_info.passwd = await bcrypt.hash(user_info.passwd, 10);
     //pasword is hashed using bcrypt and default salt 10
     //encrypting passowrd ^^
-    console.log(user_info);
+
     const jwttoken = jwt.sign(user_info, process.env.JWT_ACC_ACTIVATE, {
       expiresIn: "15m",
     });
@@ -84,7 +84,7 @@ module.exports.Sign_Up_User = async (user_info) => {
               <a href="${process.env.CLIENT_URL}/api/users/authentication/activate/${jwttoken}"> Activate account </a>`,
     };
     await mg.messages().send(data, function (error, body) {
-      console.log(body);
+      //console.log(body);
     });
     return true;
   } else {
@@ -148,7 +148,6 @@ module.exports.Update_User = async (body_content) => {
       return resullts;
     })
     .catch(err_handler);
-  console.log(updated_user);
   return updated_user;
 };
 

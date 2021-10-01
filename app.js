@@ -21,3 +21,5 @@ app.listen(
   },
   require("./middleware/cronjobs.middleware").DailyPendingTasks
 );
+
+module.exports = app;

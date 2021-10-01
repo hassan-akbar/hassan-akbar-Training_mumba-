@@ -1,18 +1,15 @@
 const express = require("express");
-
 const upload = require("../middleware/multer.middleware");
-
 const task_controller = require("../controllers/tasks_controller");
 const AuthenticationMiddleware =
   require("../middleware/authentication.middleware").VerifyToken;
-const { authenticate } = require("passport");
 
 const router = express.Router();
 
 //for parsing sent data
 router.use(express.json());
 
-router.get("/", (req, res) => {
+router.get("/hello", (req, res) => {
   res.status(200).send("hello this is the route page");
 });
 

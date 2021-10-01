@@ -16,7 +16,7 @@ router.get(
 );
 
 router.get(
-  "/averge_completed_tasks",
+  "/average_completed_tasks",
   AuthenticationMiddleware,
   report_controller.GetAverageCompletions
 );

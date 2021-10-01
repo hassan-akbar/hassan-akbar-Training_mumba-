@@ -22,6 +22,7 @@ module.exports.CreateTask = async (req, res, next) => {
    *response sends back the task id , the front end may call upon the response to call the upload route next
    */
   const Task_info = await req.body;
+
   info_logger(req, "Request", "report_services.Get_Task_Reports");
 
   await Task_services.Create_Task(Task_info)
@@ -75,16 +76,20 @@ module.exports.UploadAttachment = async (req, res, next) => {
     .catch(err_handler);
 };
 
-module.exports.GetAllTasks = async (req, res) => {
+module.exports.GetAllTasks = async (req, res, next) => {
   info_logger(req, "Request", "Task_services.Show_All_Tasks");
   const all_tasks = await Task_services.Show_All_Tasks()
     .then((data) => {
-      info_logger(req, "Response", `Task_services.Upload_Attachment ${data}`);
+      info_logger(req, "Response", `Task_services.Show_All_tasks ${data}`);
       return data;
     })
     .catch(err_handler);
-
-  res.status(200).send(all_tasks);
+  if (all_tasks) {
+    res.status(200).send(all_tasks);
+  } else {
+    res.status(400).send("invalid response");
+  }
+  next();
 };
 
 module.exports.UpdateTaskStatus = async (req, res, next) => {
@@ -96,7 +101,6 @@ module.exports.UpdateTaskStatus = async (req, res, next) => {
   info_logger(req, "Request", "Task_services.Update_Task_Status");
   const task_info = req.body;
   const user_info = req.user;
-  console.log(task_info);
 
   await Task_services.Update_Task_Status(task_info, user_info)
     .then((update_response) => {
@@ -165,11 +169,11 @@ module.exports.DeleteTask = async (req, res) => {
       info_logger(
         req,
         "Response",
-        `Task_services.Delete_Task${delete_response}`
+        `Task_services.Delete_Task->${delete_response}`
       );
       res.status(200).send("Succesfully deleted");
     } else {
-      res.status(400).send("Unsuccesful deletion");
+      res.status(400).send("Invalid Task ID");
     }
   });
 };
